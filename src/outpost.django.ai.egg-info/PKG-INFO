@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: outpost.django.ai
+Version: 0.1.dev0
+Summary: MUG API Backend - AI
+Home-page: https://github.com/medunigraz/outpost.django.ai
+Author: Michael Fladischer
+Author-email: michael.fladischer@medunigraz.at
+License: BSD
+Keywords: outpost,restful
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Utilities
+License-File: LICENSE
+
+=========================
+Outpost Django AI
+=========================
+
+
+
+Ollama controller
+
+* Free software: BSD license
+
+Documentation
+=============
+
+https://outpost.django.ai.readthedocs.io/
+
+Development
+===========
+
+To run the all tests run::
+
+    tox
+
+Note, to combine the coverage data from all the tox environments run:
+
+.. list-table::
+    :widths: 10 90
+    :stub-columns: 1
+
+    - - Windows
+      - ::
+
+            set PYTEST_ADDOPTS=--cov-append
+            tox
+
+    - - Other
+      - ::
+
+            PYTEST_ADDOPTS=--cov-append tox
