@@ -19,7 +19,7 @@ urlpatterns = [
         name="tags",
     ),
     path(
-        "/api/embed",
+        "api/embed",
         ollama.EmbedView.as_view(),
         name="embed",
     ),
