@@ -26,6 +26,9 @@ class Backend(models.Model):
     url = models.URLField()
     enabled = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ("url",)
+
     def __str__(self):
         return self.url
 
@@ -45,6 +48,9 @@ class Token(models.Model):
     )
     enabled = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ("organization__name",)
+
     def __str__(self):
         return str(self.id)
 
@@ -54,6 +60,9 @@ class Model(models.Model):
     enabled = models.BooleanField(default=True)
     size = models.PositiveIntegerField(editable=False, null=True)
     digest = models.CharField(max_length=64, editable=False, null=True)
+
+    class Meta:
+        ordering = ("name",)
 
     def __str__(self):
         return str(self.name)
@@ -68,7 +77,14 @@ class InstalledModel(models.Model):
     info = JSONField(editable=False, null=True)
 
     class Meta:
+        ordering = (
+            "model__name",
+            "backend__url",
+        )
         unique_together = (("backend", "model"),)
+
+    def __str__(self):
+        return f"{self.model}@{self.backend}"
 
     def post_save(self, created, *args, **kwargs):
         if not created:
