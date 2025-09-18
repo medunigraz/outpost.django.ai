@@ -2,7 +2,6 @@ import logging
 import uuid
 
 from django.contrib.gis.db import models
-from django.contrib.postgres.fields import JSONField
 from django.db import transaction
 from outpost.django.base.decorators import signal_connect
 
@@ -74,7 +73,7 @@ class InstalledModel(models.Model):
     model = models.ForeignKey(Model, on_delete=models.CASCADE)
     running = models.BooleanField(default=False, editable=False)
     modified = models.DateTimeField(auto_now=True, editable=False, null=True)
-    info = JSONField(editable=False, null=True)
+    info = models.JSONField(editable=False, null=True)
 
     class Meta:
         ordering = (

@@ -1,2 +1,0 @@
-outpost
-outpost.django
