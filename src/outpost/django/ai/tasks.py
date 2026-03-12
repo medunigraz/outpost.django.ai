@@ -79,7 +79,7 @@ class BackendTasks:
             ) as response:
                 response.raise_for_status()
                 running = {m.get("model") for m in response.json().get("models")}
-                for im in backend.installedmodels.filter(model__enabled=True):
+                for im in backend.installedmodel_set.filter(model__enabled=True):
                     if im.model.name in running:
                         if im.running:
                             continue
