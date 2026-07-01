@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("campusonline", "0078_linz"),
+        ("campusonline", "0001_initial"),
     ]
 
     operations = [
